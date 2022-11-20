@@ -3,6 +3,7 @@ import GlobalStyles from './components/styles/Global';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import { useState } from 'react';
+import SearchCountries from './components/SearchCountries';
 
 const lightTheme = {
   background: 'hsl(0, 0%, 98%)',
@@ -29,7 +30,7 @@ function App() {
         <GlobalStyles />
         <Container>
           <Header onToggleMode={toggleMode} darkMode={darkMode} />
-          test
+          <SearchCountries />
         </Container>
       </>
     </ThemeProvider>
