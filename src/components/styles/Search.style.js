@@ -10,7 +10,7 @@ export const StyledSearch = styled.div`
   min-width: 19rem;
 
   label {
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
     
     svg {
       height: 1.2rem;
@@ -20,7 +20,8 @@ export const StyledSearch = styled.div`
 
   input {
     width: 100%;
-    padding-right: 1.5rem;
+    border-radius: 5px;
+    padding: 1rem 1.5rem 1rem 0;
     background: ${({ theme }) => theme.componentBg};
     border: none;
     font-size: .9rem;

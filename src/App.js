@@ -2,8 +2,9 @@ import { Container } from './components/styles/Container.style';
 import GlobalStyles from './components/styles/Global';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchCountries from './components/SearchCountries';
+import Main from './components/Main';
 
 const lightTheme = {
   background: 'hsl(0, 0%, 98%)',
@@ -19,6 +20,14 @@ const darkTheme = {
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [countriesList, setCountriesList] = useState([]);
+
+  useEffect(() => {
+    // Dont't forget to handle errors!!!
+    fetch(`https://restcountries.com/v3.1/all`)
+      .then((res) => res.json())
+      .then((data) => setCountriesList(data));
+  }, []);
 
   const toggleMode = () => {
     setDarkMode((prevMode) => !prevMode);
@@ -31,6 +40,7 @@ function App() {
         <Container>
           <Header onToggleMode={toggleMode} darkMode={darkMode} />
           <SearchCountries />
+          <Main list={countriesList} />
         </Container>
       </>
     </ThemeProvider>
