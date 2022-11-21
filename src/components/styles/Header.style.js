@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledHeader = styled.header`
   background: ${({ theme }) => theme.componentBg};
   color: ${({ theme }) => theme.textColor};
-  padding: 1.5% 5%;
+  padding: 2% 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;

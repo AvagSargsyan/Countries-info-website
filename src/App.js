@@ -21,6 +21,7 @@ const darkTheme = {
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countriesList, setCountriesList] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   let completeListRef = useRef();
 
@@ -47,14 +48,18 @@ function App() {
     setCountriesList(filteredList);
   }
 
+  const onSearch = (text) => {
+    setSearchText(text);
+  }
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <>
         <GlobalStyles />
         <Container>
           <Header onToggleMode={toggleMode} darkMode={darkMode} />
-          <SearchCountries handleFilterChange={handleFilterChange} />
-          <Main list={countriesList} />
+          <SearchCountries handleFilterChange={handleFilterChange} onSearch={onSearch} />
+          <Main list={countriesList} searchText={searchText} />
         </Container>
       </>
     </ThemeProvider>
