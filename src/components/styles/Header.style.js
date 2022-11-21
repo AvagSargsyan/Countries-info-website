@@ -8,6 +8,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
 
   h1 {
     font-size: 1.4rem;
