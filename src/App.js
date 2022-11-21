@@ -2,7 +2,7 @@ import { Container } from './components/styles/Container.style';
 import GlobalStyles from './components/styles/Global';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SearchCountries from './components/SearchCountries';
 import Main from './components/Main';
 
@@ -22,16 +22,30 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countriesList, setCountriesList] = useState([]);
 
+  let completeListRef = useRef();
+
   useEffect(() => {
     // Dont't forget to handle errors!!!
     fetch(`https://restcountries.com/v3.1/all`)
       .then((res) => res.json())
-      .then((data) => setCountriesList(data));
+      .then((data) => {
+        completeListRef.current = data;
+        setCountriesList(completeListRef.current);
+      });
   }, []);
 
   const toggleMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
+
+  const handleFilterChange = (value) => {
+    if (value === 'all') {
+      setCountriesList(completeListRef.current);
+      return;
+    }
+    const filteredList = completeListRef.current.filter(country => country.region === value);
+    setCountriesList(filteredList);
+  }
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
@@ -39,7 +53,7 @@ function App() {
         <GlobalStyles />
         <Container>
           <Header onToggleMode={toggleMode} darkMode={darkMode} />
-          <SearchCountries />
+          <SearchCountries handleFilterChange={handleFilterChange} />
           <Main list={countriesList} />
         </Container>
       </>
