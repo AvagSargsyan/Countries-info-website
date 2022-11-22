@@ -5,6 +5,7 @@ import Header from './components/Header';
 import { useEffect, useRef, useState } from 'react';
 import SearchCountries from './components/SearchCountries';
 import Main from './components/Main';
+import CountryDetails from './components/CountryDetails';
 
 const lightTheme = {
   background: 'hsl(0, 0%, 98%)',
@@ -58,6 +59,7 @@ function App() {
         <GlobalStyles />
         <Container>
           <Header onToggleMode={toggleMode} darkMode={darkMode} />
+          {/* <CountryDetails /> */}
           <SearchCountries handleFilterChange={handleFilterChange} onSearch={onSearch} />
           <Main list={countriesList} searchText={searchText} />
         </Container>
