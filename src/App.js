@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import SearchCountries from './components/SearchCountries';
 import Main from './components/Main';
 import CountryDetails from './components/CountryDetails';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const lightTheme = {
   background: 'hsl(0, 0%, 98%)',
@@ -45,24 +46,43 @@ function App() {
       setCountriesList(completeListRef.current);
       return;
     }
-    const filteredList = completeListRef.current.filter(country => country.region === value);
+    const filteredList = completeListRef.current.filter(
+      (country) => country.region === value
+    );
     setCountriesList(filteredList);
-  }
+  };
 
   const onSearch = (text) => {
     setSearchText(text);
-  }
+  };
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <>
         <GlobalStyles />
-        <Container>
-          <Header onToggleMode={toggleMode} darkMode={darkMode} />
-          {/* <CountryDetails /> */}
-          <SearchCountries handleFilterChange={handleFilterChange} onSearch={onSearch} />
-          <Main list={countriesList} searchText={searchText} />
-        </Container>
+        <Router>
+          <Container>
+            <Header onToggleMode={toggleMode} darkMode={darkMode} />
+          </Container>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <SearchCountries
+                    handleFilterChange={handleFilterChange}
+                    onSearch={onSearch}
+                  />
+                  <Main list={countriesList} searchText={searchText} />
+                </>
+              }
+            />
+            <Route
+              path={`/country/:countryName`}
+              element={<CountryDetails />}
+            />
+          </Routes>
+        </Router>
       </>
     </ThemeProvider>
   );
