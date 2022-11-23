@@ -1,6 +1,7 @@
 import { StyledBorderCountries, StyledButton, StyledCountryDetails, StyledDetails, StyledDetailsContainer, StyledMainInfo, StyledOtherInfo } from "./styles/CountryDetails.style";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { FaArrowLeft } from 'react-icons/fa';
 
 export default function CountryDetails() {
 
@@ -50,16 +51,17 @@ export default function CountryDetails() {
 
   let navigate = useNavigate();
 
-
   return (
     <StyledCountryDetails>
       {country ? <>
         <StyledButton onClick={() => navigate('/')}>
+          <FaArrowLeft />
           Back
         </StyledButton>
         <StyledDetailsContainer>
           <img src={country.flags.svg} alt={country.name.common ? country.name.common : ''} />
           <StyledDetails>
+            <h2>{country.name.common}</h2>
             <StyledMainInfo>
               <p><span>Native Name: </span>{country.name.common ? country.name.common : ''}</p>
               <p><span>Population: </span>{country.population ? numberWithCommas(country.population) : ''}</p>
