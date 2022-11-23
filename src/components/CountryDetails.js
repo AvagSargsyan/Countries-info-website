@@ -12,7 +12,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import Loader from './Loader';
 
-export default function CountryDetails() {
+export default function CountryDetails({ resetSearchText, handleFilterChange }) {
   const [country, setCountry] = useState(null);
   const [localDataState, setLocalDataState] = useState('loading');
 
@@ -76,7 +76,11 @@ export default function CountryDetails() {
     <StyledCountryDetails>
       {country ? (
         <>
-          <StyledButton onClick={() => navigate('/')}>
+          <StyledButton onClick={() => {
+            resetSearchText();
+            handleFilterChange('all');
+            navigate('/');
+          }}>
             <FaArrowLeft />
             Back
           </StyledButton>

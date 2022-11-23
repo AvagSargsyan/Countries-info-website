@@ -62,6 +62,10 @@ function App() {
     setSearchText(text);
   };
 
+  const resetSearchText = () => {
+    setSearchText('');
+  };
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <>
@@ -89,7 +93,12 @@ function App() {
             />
             <Route
               path={`/country/:countryName`}
-              element={<CountryDetails dataState={dataState} />}
+              element={
+                <CountryDetails
+                  resetSearchText={resetSearchText}
+                  handleFilterChange={handleFilterChange}
+                />
+              }
             />
             <Route path={`*`} element={<ErrorPage />} />
           </Routes>
