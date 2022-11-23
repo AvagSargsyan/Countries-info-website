@@ -1,4 +1,4 @@
-# Countries info websit
+# Countries info website
 
 A responsive countries info website that provides information about countries all over the world.\
 You can
