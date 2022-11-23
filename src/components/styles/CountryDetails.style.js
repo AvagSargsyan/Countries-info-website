@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledCountryDetails = styled.div`
+  position: relative;
   padding: 5%;
   max-width: 100vw;
   max-height: 100vh;

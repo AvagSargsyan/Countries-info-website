@@ -1,8 +1,7 @@
-import { StyledSearch } from "./styles/Search.style"
+import { StyledSearch } from './styles/Search.style';
 import { FaSearch } from 'react-icons/fa';
 
 export default function Search({ onSearch }) {
-
   return (
     <StyledSearch>
       <label htmlFor="searchCountry">
@@ -15,5 +14,5 @@ export default function Search({ onSearch }) {
         onChange={(e) => onSearch(e.target.value)}
       />
     </StyledSearch>
-  )
+  );
 }

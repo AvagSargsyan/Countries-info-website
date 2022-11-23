@@ -1,4 +1,4 @@
-import { StyledHeader } from "./styles/Header.style"
+import { StyledHeader } from './styles/Header.style';
 import { FaRegMoon, FaMoon } from 'react-icons/fa';
 
 export default function Header({ onToggleMode, darkMode }) {
@@ -10,5 +10,5 @@ export default function Header({ onToggleMode, darkMode }) {
         Dark Mode
       </button>
     </StyledHeader>
-  )
+  );
 }
