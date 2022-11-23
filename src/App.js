@@ -34,7 +34,9 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setDataState('success');
-        completeListRef.current = data;
+        completeListRef.current = data.sort((a, b) =>
+          a.name.common < b.name.common ? -1 : 1
+        );
         setCountriesList(completeListRef.current);
       })
       .catch((error) => {
@@ -76,7 +78,7 @@ function App() {
           </Container>
           <Routes>
             <Route
-              path="/"
+              path="/Countries-info-website"
               element={
                 <>
                   <SearchCountries
@@ -92,7 +94,7 @@ function App() {
               }
             />
             <Route
-              path={`/country/:countryName`}
+              path={`/Countries-info-website/country/:countryName`}
               element={
                 <CountryDetails
                   resetSearchText={resetSearchText}

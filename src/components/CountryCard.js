@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function CountryCard({ country }) {
   return (
     <StyledCountryCard>
-      <Link to={`/country/${country.name.common}`}>
+      <Link to={`/Countries-info-website/country/${country.name.common}`}>
         <img src={country.flags.svg} alt={`${country.name.common} flag`} />
         <div>
           <h2>{country.name.common}</h2>

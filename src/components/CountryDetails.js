@@ -79,7 +79,7 @@ export default function CountryDetails({ resetSearchText, handleFilterChange }) 
           <StyledButton onClick={() => {
             resetSearchText();
             handleFilterChange('all');
-            navigate('/');
+            navigate('/Countries-info-website');
           }}>
             <FaArrowLeft />
             Back
@@ -87,32 +87,32 @@ export default function CountryDetails({ resetSearchText, handleFilterChange }) 
           <StyledDetailsContainer>
             <img
               src={country.flags.svg}
-              alt={country.name.common ? country.name.common : ''}
+              alt={country.name.common ? country.name.common : '_'}
             />
             <StyledDetails>
               <h2>{country.name.common}</h2>
               <StyledMainInfo>
                 <p>
                   <span>Native Name: </span>
-                  {country.name.common ? country.name.common : ''}
+                  {country.name.common ? country.name.common : '_'}
                 </p>
                 <p>
                   <span>Population: </span>
                   {country.population
                     ? numberWithCommas(country.population)
-                    : ''}
+                    : '_'}
                 </p>
                 <p>
                   <span>Region: </span>
-                  {country.region ? country.region : ''}
+                  {country.region ? country.region : '_'}
                 </p>
                 <p>
                   <span>Sub Region: </span>
-                  {country.subregion ? country.subregion : ''}
+                  {country.subregion ? country.subregion : '_'}
                 </p>
                 <p>
                   <span>Capital: </span>
-                  {country.capital ? country.capital : ''}
+                  {country.capital ? country.capital : '_'}
                 </p>
               </StyledMainInfo>
               <StyledOtherInfo>
@@ -122,16 +122,16 @@ export default function CountryDetails({ resetSearchText, handleFilterChange }) 
                 </p>
                 <p>
                   <span>Currencies: </span>
-                  {country.currencies ? getCurrencies(country.currencies) : ''}
+                  {country.currencies ? getCurrencies(country.currencies) : '_'}
                 </p>
                 <p>
                   <span>Languages: </span>
-                  {country.languages ? getLanguages(country.languages) : ''}
+                  {country.languages ? getLanguages(country.languages) : '_'}
                 </p>
               </StyledOtherInfo>
               <StyledBorderCountries>
                 <span>Border Countries: </span>
-                {country.borders ? getBorderCountries(country.borders) : ''}
+                {country.borders ? getBorderCountries(country.borders) : '_'}
               </StyledBorderCountries>
             </StyledDetails>
           </StyledDetailsContainer>
