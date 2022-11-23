@@ -1,3 +1,31 @@
+# Countries info websit
+
+A responsive countries info website that provides information about countries all over the world.\
+You can
+
+- See all countries from the API on the homepage
+- Search for a country using the `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Toggle the color scheme between light and dark mode
+
+![Countries info website](./src/Screenshot.png)
+
+## Links
+
+You can visit the website by following this [link](http://avagsargsyan.github.io/Countries-info-website/).
+
+## Built with
+
+- [React](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [RESTcountries API](https://restcountries.com/)
+
+## Author
+
+- Created by [Avag Sargsyan](https://github.com/AvagSargsyan)
+- Designed by [Frontend Mentor](https://www.frontendmentor.io)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
